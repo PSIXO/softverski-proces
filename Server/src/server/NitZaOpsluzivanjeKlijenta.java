@@ -153,8 +153,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                     try {
                         System.out.println("O: " + Operacije.PRETRAZI_PROIZVODE);
                         Proizvod p = (Proizvod) toZahtev.getParametar();
-                        List<OpstiDomenskiObjekat> lista;
-                        lista = Kontroler.vratiObjekat().pretraziObjekte(p);
+                        List<Proizvod> lista = Kontroler.vratiObjekat().pretraziObjekte(p);
                         toOdgovor.setRezultat(lista);
                         toOdgovor.setPoruka("Sistem je pronasao proizvode.");
                     } catch (Exception ex) {
@@ -167,8 +166,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                     try {
                         System.out.println("O: " + Operacije.PRETRAZI_POSLOVNE_PARTNERE);
                         PoslovniPartner p = (PoslovniPartner) toZahtev.getParametar();
-                        List<OpstiDomenskiObjekat> lista;
-                        lista = Kontroler.vratiObjekat().pretraziSaVezanimObjektom(p);
+                        List<PoslovniPartner> lista = Kontroler.vratiObjekat().pretraziSaVezanimObjektom(p);
                         toOdgovor.setRezultat(lista);
                         toOdgovor.setPoruka("Sistem je pronasao poslovne partnere.");
                     } catch (Exception ex) {
@@ -241,8 +239,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                     try {
                         System.out.println("O: " + Operacije.PRETRAZI_FAKTURE);
                         Faktura p = (Faktura) toZahtev.getParametar();
-                        List<OpstiDomenskiObjekat> lista;
-                        lista = Kontroler.vratiObjekat().pretraziSaVezanimObjektom(p);
+                        List<Faktura> lista = Kontroler.vratiObjekat().pretraziSaVezanimObjektom(p);
                         toOdgovor.setRezultat(lista);
                         toOdgovor.setPoruka("Sistem je pronasao fakture.");
                     } catch (Exception ex) {

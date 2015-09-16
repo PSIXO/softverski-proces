@@ -4,16 +4,17 @@
  */
 package transfer;
 
+import domen.OpstiDomenskiObjekat;
 import java.io.Serializable;
 
 /**
  *
  * @author Jelena
  */
-public class TransferObjekat implements Serializable {
+public class TransferObjekat<T extends OpstiDomenskiObjekat> implements Serializable {
    
     private int operacija;
-    private Object parametar;
+    private T parametar;
     private Object rezultat;
     private Object izuzetak;
     private String poruka;
@@ -30,7 +31,7 @@ public class TransferObjekat implements Serializable {
         return parametar;
     }
 
-    public void setParametar(Object parametar) {
+    public void setParametar(T parametar) {
         this.parametar = parametar;
     }
 

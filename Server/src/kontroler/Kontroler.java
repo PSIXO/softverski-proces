@@ -70,18 +70,18 @@ public class Kontroler {
         return ((GenerisiId)oso).getId();
     }
 
-    public void kreirajISacuvajObjekat(OpstiDomenskiObjekat odo) throws Exception {
+    public <E extends OpstiDomenskiObjekat> void kreirajISacuvajObjekat(E odo) throws Exception {
         oso = new KreirajIsacuvajObjekat(odo);
         oso.izvrsenjeSO();
     }
 
-    public List<OpstiDomenskiObjekat> pretraziObjekte(OpstiDomenskiObjekat odo) throws Exception {
+    public <E extends OpstiDomenskiObjekat> List<E> pretraziObjekte(E odo) throws Exception {
         oso = new PretraziObjekte(odo);
         oso.izvrsenjeSO();
         return ((PretraziObjekte)oso).getLista();
     }
     
-    public List<OpstiDomenskiObjekat> pretraziSaVezanimObjektom(OpstiDomenskiObjekat odo) throws Exception {
+    public <E extends OpstiDomenskiObjekat> List<E>  pretraziSaVezanimObjektom(E odo) throws Exception {
         oso = new PretraziObjekteSaVezanimObjektom(odo);
         oso.izvrsenjeSO();
         return ((PretraziObjekteSaVezanimObjektom)oso).getLista();
