@@ -10,24 +10,25 @@ import java.util.List;
 /**
  *
  * @author Jelena
+ * @param <T>
  */
-public class VratiObjekteSaVezanimObjektom extends OpstaSistemskaOperacija{
+public class VratiObjekteSaVezanimObjektom <T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
-    private List<OpstiDomenskiObjekat> lista;
+    private List<T> lista;
     
-    public VratiObjekteSaVezanimObjektom(OpstiDomenskiObjekat odo) {
+    public VratiObjekteSaVezanimObjektom(T odo) {
         super(odo);
     }
     
     @Override
     public void izvrsiOperaciju() throws Exception {
-        lista = dbbr.vratiSve(odo);
-        for (OpstiDomenskiObjekat opstiDomenskiObjekat : lista) {
+        lista = (List<T>) dbbr.vratiSve(odo);
+        for (T opstiDomenskiObjekat : lista) {
             opstiDomenskiObjekat.setVezaniObjekat(dbbr.dajPodatke(opstiDomenskiObjekat.vratiVezaniObjekat()));
         }
     }
 
-    public List<OpstiDomenskiObjekat> getLista() {
+    public List<T> getLista() {
         return lista;
     }
 }

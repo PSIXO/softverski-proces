@@ -10,9 +10,9 @@ import domen.OpstiDomenskiObjekat;
  *
  * @author Jelena
  */
-public class StornirajFakturu extends OpstaSistemskaOperacija {
+public class StornirajFakturu <T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija {
 
-    public StornirajFakturu(OpstiDomenskiObjekat odo) {
+    public StornirajFakturu(T odo) {
         super(odo);
     }
 

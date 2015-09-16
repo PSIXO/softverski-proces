@@ -10,8 +10,9 @@ import java.util.List;
 /**
  *
  * @author Jelena
+ * @param <T>
  */
-public class VratiSveObjekte extends OpstaSistemskaOperacija{
+public class VratiSveObjekte <T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
     private List<OpstiDomenskiObjekat> lista;
     

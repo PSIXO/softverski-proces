@@ -46,23 +46,22 @@ public class Kontroler {
         oso.izvrsenjeSO();
     }
 
-    public List<OpstiDomenskiObjekat> vratiSveObjekte(OpstiDomenskiObjekat odo) throws Exception {
+    public <T extends OpstiDomenskiObjekat> List<T> vratiSveObjekte(T odo) throws Exception {
         oso = new VratiSveObjekte(odo);
         oso.izvrsenjeSO();
         return ((VratiSveObjekte)oso).getLista();
     }
     
-    public List<OpstiDomenskiObjekat> vratiObjekteSaVezanimObjektom(OpstiDomenskiObjekat odo)throws Exception{
+    public <T extends OpstiDomenskiObjekat> List<T> vratiObjekteSaVezanimObjektom(T odo)throws Exception{
         oso = new VratiObjekteSaVezanimObjektom(odo);
         oso.izvrsenjeSO();
-        List<OpstiDomenskiObjekat> lista = ((VratiObjekteSaVezanimObjektom)oso).getLista();
-        return lista;
+        return ((VratiObjekteSaVezanimObjektom)oso).getLista();
     }
 
-    public OpstiDomenskiObjekat kreirajObjekat(OpstiDomenskiObjekat odo) throws Exception {
-        oso = new KreirajNoviObjekat(odo);
+    public <T extends OpstiDomenskiObjekat> T kreirajObjekat(T odo) throws Exception {
+        oso = new KreirajNoviObjekat<T>(odo);
         oso.izvrsenjeSO();
-        return ((KreirajNoviObjekat)oso).getObjekat();
+        return ((KreirajNoviObjekat<T>)oso).getObjekat();
     }
 
     public int generisiID(OpstiDomenskiObjekat odo) throws Exception {

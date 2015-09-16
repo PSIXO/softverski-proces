@@ -11,20 +11,20 @@ import java.util.List;
  *
  * @author Jelena
  */
-public class PretraziObjekte extends OpstaSistemskaOperacija{
+public class PretraziObjekte<T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
-    List<OpstiDomenskiObjekat> lista;
+    List<T> lista;
     
-    public PretraziObjekte(OpstiDomenskiObjekat odo) {
+    public PretraziObjekte(T odo) {
         super(odo);
     }
 
     @Override
     public void izvrsiOperaciju() throws Exception {
-        lista = dbbr.pretraziObjekte(odo);
+        lista = (List<T>) dbbr.pretraziObjekte(odo);
     }
 
-    public List<OpstiDomenskiObjekat> getLista() {
+    public List<T> getLista() {
         return lista;
     }
 }

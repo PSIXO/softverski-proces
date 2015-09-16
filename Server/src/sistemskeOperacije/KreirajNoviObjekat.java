@@ -9,12 +9,13 @@ import domen.OpstiDomenskiObjekat;
 /**
  *
  * @author Jelena
+ * @param <T>
  */
-public class KreirajNoviObjekat extends OpstaSistemskaOperacija{
+public class KreirajNoviObjekat<T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
-    OpstiDomenskiObjekat objekat;
+    T objekat;
     
-    public KreirajNoviObjekat(OpstiDomenskiObjekat odo) {
+    public KreirajNoviObjekat(T odo) {
         super(odo);
     }
     
@@ -23,7 +24,7 @@ public class KreirajNoviObjekat extends OpstaSistemskaOperacija{
         dbbr.kreiraj(odo);
     }
 
-    public OpstiDomenskiObjekat getObjekat() {
+    public T getObjekat() {
         return objekat;
     }
 }

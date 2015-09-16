@@ -11,23 +11,23 @@ import java.util.List;
  *
  * @author Jelena
  */
-public class PretraziObjekteSaVezanimObjektom  extends OpstaSistemskaOperacija{
+public class PretraziObjekteSaVezanimObjektom <T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
-    List<OpstiDomenskiObjekat> lista;
+    List<T> lista;
     
-    public PretraziObjekteSaVezanimObjektom(OpstiDomenskiObjekat odo) {
+    public PretraziObjekteSaVezanimObjektom(T odo) {
         super(odo);
     }
 
     @Override
     public void izvrsiOperaciju() throws Exception {
-        lista = dbbr.pretraziObjekte(odo);
+        lista = (List<T>) dbbr.pretraziObjekte(odo);
         for (OpstiDomenskiObjekat opstiDomenskiObjekat : lista) {
             opstiDomenskiObjekat.setVezaniObjekat(dbbr.dajPodatke(opstiDomenskiObjekat.vratiVezaniObjekat()));
         }
     }
 
-    public List<OpstiDomenskiObjekat> getLista() {
+    public List<T> getLista() {
         return lista;
     }
 }

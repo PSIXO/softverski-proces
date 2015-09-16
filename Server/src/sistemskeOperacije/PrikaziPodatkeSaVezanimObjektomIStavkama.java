@@ -11,17 +11,17 @@ import java.util.List;
  *
  * @author Jelena
  */
-public class PrikaziPodatkeSaVezanimObjektomIStavkama extends OpstaSistemskaOperacija{
+public class PrikaziPodatkeSaVezanimObjektomIStavkama <T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
-    OpstiDomenskiObjekat objekat;
+    T objekat;
     
-    public PrikaziPodatkeSaVezanimObjektomIStavkama(OpstiDomenskiObjekat odo) {
+    public PrikaziPodatkeSaVezanimObjektomIStavkama(T odo) {
         super(odo);
     }
 
     @Override
     public void izvrsiOperaciju() throws Exception {
-        objekat = dbbr.dajPodatke(odo);
+        objekat = (T) dbbr.dajPodatke(odo);
         objekat.setVezaniObjekat(dbbr.dajPodatke(odo.vratiVezaniObjekat()));
         List<OpstiDomenskiObjekat> lista = dbbr.vratiSlabeObjekte(odo);
         for (OpstiDomenskiObjekat opstiDomenskiObjekat : lista) {

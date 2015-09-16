@@ -17,7 +17,7 @@ import java.util.List;
  * @author student1
  * @param <T>
  */
-public class DatabaseBroker<T> {
+public class DatabaseBroker {
 
     private Connection konekcija;
 

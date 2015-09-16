@@ -10,18 +10,18 @@ import domen.OpstiDomenskiObjekat;
  *
  * @author Jelena
  */
-public class PrikaziPodatkeSaVezanimObjektom extends OpstaSistemskaOperacija{
+public class PrikaziPodatkeSaVezanimObjektom <T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
-    OpstiDomenskiObjekat objekat; 
+    T objekat; 
     
-    public PrikaziPodatkeSaVezanimObjektom(OpstiDomenskiObjekat odo) {
+    public PrikaziPodatkeSaVezanimObjektom(T odo) {
         super(odo);
     }
 
     @Override
     public void izvrsiOperaciju() throws Exception {
-        objekat = dbbr.dajPodatke(odo);
-        OpstiDomenskiObjekat o = dbbr.dajPodatke(objekat.vratiVezaniObjekat());
+        objekat = (T) dbbr.dajPodatke(odo);
+        T o = (T) dbbr.dajPodatke(objekat.vratiVezaniObjekat());
         objekat.setVezaniObjekat(o);
     }
 

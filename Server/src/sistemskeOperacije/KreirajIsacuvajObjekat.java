@@ -10,7 +10,7 @@ import domen.OpstiDomenskiObjekat;
  *
  * @author Jelena
  */
-public class KreirajIsacuvajObjekat extends OpstaSistemskaOperacija{
+public class KreirajIsacuvajObjekat<T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
 
     OpstiDomenskiObjekat objekat;
 

@@ -10,19 +10,19 @@ import domen.OpstiDomenskiObjekat;
  *
  * @author Jelena
  */
-public class PrikaziPodatke extends OpstaSistemskaOperacija{
-    OpstiDomenskiObjekat objekat;
+public class PrikaziPodatke <T extends OpstiDomenskiObjekat> extends OpstaSistemskaOperacija{
+    T objekat;
 
-    public PrikaziPodatke(OpstiDomenskiObjekat odo) {
+    public PrikaziPodatke(T odo) {
         super(odo);
     }
 
     @Override
     public void izvrsiOperaciju() throws Exception {
-        objekat = dbbr.dajPodatke(odo);
+        objekat = (T) dbbr.dajPodatke(odo);
     }
 
-    public OpstiDomenskiObjekat getObjekat() {
+    public T getObjekat() {
         return objekat;
     }
 }

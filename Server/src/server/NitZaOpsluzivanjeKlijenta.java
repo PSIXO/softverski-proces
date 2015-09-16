@@ -68,8 +68,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                     try {
                         System.out.println("O: " + Operacije.VRATI_SVA_MESTA);
                         Mesto m = (Mesto) toZahtev.getParametar();
-                        List<OpstiDomenskiObjekat> lm;
-                        lm = Kontroler.vratiObjekat().vratiSveObjekte(m);
+                        List<Mesto> lm = Kontroler.vratiObjekat().vratiSveObjekte(m);
                         toOdgovor.setRezultat(lm);
                         toOdgovor.setPoruka("Sistem je vratio listu mesta.");
                     } catch (Exception ex) {
@@ -81,7 +80,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                 case Operacije.KREIRAJ_POSLOVNOG_PARTNERA:
                     try {
                         System.out.println("O: " + Operacije.KREIRAJ_POSLOVNOG_PARTNERA);
-                        PoslovniPartner p = (PoslovniPartner) Kontroler.vratiObjekat().kreirajObjekat((PoslovniPartner) toZahtev.getParametar());
+                        PoslovniPartner p = Kontroler.vratiObjekat().kreirajObjekat((PoslovniPartner) toZahtev.getParametar());
                         toOdgovor.setPoruka("Poslovni partner je kreiran.");
                     } catch (Exception ex) {
                         ex.printStackTrace();
@@ -105,8 +104,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                     try {
                         System.out.println("O: " + Operacije.VRATI_SVE_POSLOVNE_PARTNERE);
                         PoslovniPartner p = (PoslovniPartner) toZahtev.getParametar();
-                        List<OpstiDomenskiObjekat> lista;
-                        lista = Kontroler.vratiObjekat().vratiObjekteSaVezanimObjektom(p);
+                        List<PoslovniPartner> lista = Kontroler.vratiObjekat().vratiObjekteSaVezanimObjektom(p);
                         toOdgovor.setRezultat(lista);
                         toOdgovor.setPoruka("Sistem je vratio listu poslovnih partnera.");
                     } catch (Exception ex) {
@@ -118,7 +116,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                 case Operacije.KREIRAJ_PROIZVOD:
                     try {
                         System.out.println("O: " + Operacije.KREIRAJ_PROIZVOD);
-                        Proizvod p = (Proizvod) Kontroler.vratiObjekat().kreirajObjekat((Proizvod) toZahtev.getParametar());
+                        Proizvod p = Kontroler.vratiObjekat().kreirajObjekat((Proizvod) toZahtev.getParametar());
                         toOdgovor.setPoruka("Proizvod je kreiran.");
                     } catch (Exception ex) {
                         ex.printStackTrace();
@@ -142,8 +140,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                     try {
                         System.out.println("O: " + Operacije.VRATI_SVE_PROIZVODE);
                         Proizvod p = (Proizvod) toZahtev.getParametar();
-                        List<OpstiDomenskiObjekat> lista;
-                        lista = Kontroler.vratiObjekat().vratiSveObjekte(p);
+                        List<Proizvod> lista = Kontroler.vratiObjekat().vratiSveObjekte(p);
                         toOdgovor.setRezultat(lista);
                         toOdgovor.setPoruka("Sistem je vratio listu proizvoda.");
                     } catch (Exception ex) {
@@ -183,7 +180,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                 case Operacije.KREIRAJ_FAKTURU:
                     try {
                         System.out.println("O: " + Operacije.KREIRAJ_FAKTURU);
-                        Faktura f = (Faktura) Kontroler.vratiObjekat().kreirajObjekat((Faktura) toZahtev.getParametar());
+                        Faktura f = Kontroler.vratiObjekat().kreirajObjekat((Faktura) toZahtev.getParametar());
                         toOdgovor.setPoruka("Faktura je kreirana.");
                     } catch (Exception ex) {
                         ex.printStackTrace();
@@ -207,8 +204,7 @@ public class NitZaOpsluzivanjeKlijenta extends Thread {
                     try {
                         System.out.println("O: " + Operacije.VRATI_SVE_FAKTURE);
                         Faktura f = (Faktura) toZahtev.getParametar();
-                        List<OpstiDomenskiObjekat> lista;
-                        lista = Kontroler.vratiObjekat().vratiObjekteSaVezanimObjektom(f);
+                        List<Faktura> lista = Kontroler.vratiObjekat().vratiObjekteSaVezanimObjektom(f);
                         toOdgovor.setRezultat(lista);
                         toOdgovor.setPoruka("Sistem je vratio listu faktura.");
                     } catch (Exception ex) {
